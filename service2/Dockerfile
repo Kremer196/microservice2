@@ -1,7 +1,7 @@
 FROM python:latest
 
-RUN curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog > /usr/bin/fwatchdog \
-    && chmod +x /usr/bin/fwatchdog
+RUN curl -sL https://github.com/openfaas/classic-watchdog/releases/download/0.2.2/fwatchdog-amd64 > /usr/bin/fwatchdog && \
+    chmod +x /usr/bin/fwatchdog
 
 ENV fprocess="python entrypoint.py"
 COPY entrypoint.py /
