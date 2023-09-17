@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: service2
+  template:
+    metadata:
+      labels:
+        app: service2
+    spec:
+      containers:
+      - name: service2
+        image: localhost:5000/service2:1.0
+        env:
+        - name: SERVICE1
+          value: http://service1
+        ports:
+        - protocol: TCP
+          containerPort: 8080
