@@ -6,6 +6,7 @@ RUN curl -sL https://github.com/openfaas/classic-watchdog/releases/download/0.2.
 ENV fprocess="python entrypoint.py"
 COPY entrypoint.py /
 
+RUN pip install validators
 RUN pip install requests
 
 EXPOSE 8080
